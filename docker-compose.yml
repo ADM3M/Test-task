@@ -1,0 +1,27 @@
+version: '3'
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "7hpJ3lq1j"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+  test-task:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=Server=ms-sql-server,1433;Database=testTask;User Id=SA;Password=7hpJ3lq1j;
+    build:
+      context: ./testtask.api/.
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
+    links:
+      - ms-sql-server
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s

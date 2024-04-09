@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "491b044e-c75b-4a8f-aa68-76bfad84f68f",
+		"name": "TestTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20370935"
+	},
+	"item": [
+		{
+			"name": "Get all patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/patient/5e63cfde-05a4-409f-8a9f-eda410fee891",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"5e63cfde-05a4-409f-8a9f-eda410fee891"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": {\r\n            \"use\": \"official\",\r\n            \"family\": \"Александров\",\r\n            \"given\": [\r\n                \"Александр\",\r\n                \"Александрович\"\r\n            ]\r\n        },\r\n        \"gender\": \"male\",\r\n        \"birthDate\": \"1992-04-25T18:25:43\",\r\n        \"active\": true\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/patient/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"5e63cfde-05a4-409f-8a9f-eda410fee891\",\r\n    \"name\": {\r\n        \"id\": \"6e7314d9-03dd-46e1-9ec9-29cfd17837c2\",\r\n        \"use\": \"nonOfficial\",\r\n        \"family\": \"Александров\",\r\n        \"given\": [\r\n            \"Александр1\",\r\n            \"Александрович\"\r\n        ]\r\n    },\r\n    \"gender\": \"other\",\r\n    \"birthDate\": \"1992-04-25T18:25:43\",\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/patient/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/patient/delete/35c266db-c828-425f-8e8b-96c2c28dda88",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"delete",
+						"35c266db-c828-425f-8e8b-96c2c28dda88"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter by birth date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/patient/filter?birthDate=le2024-01-13T18:25:43",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"patient",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "birthDate",
+							"value": "le2024-01-13T18:25:43"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
