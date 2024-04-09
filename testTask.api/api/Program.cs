@@ -15,7 +15,7 @@ builder.Services.AddAppServices(builder.Configuration);
 
 var app = builder.Build();
 
-DatabaseInit.InitializeDb(app);
+DatabaseInit.Initialize(app);
 
 
 if (app.Environment.IsDevelopment())

@@ -2,8 +2,7 @@ namespace api.Foundation.Services.HL7DateComparison;
 
 public static class Hl7DateInfoParser
 {
-    public static readonly string[] AvailableModes = new[]
-    {
+    public static readonly string[] AvailableModes = {
         Hl7ComparisonModeOptions.Eq,
         Hl7ComparisonModeOptions.Ne,
         Hl7ComparisonModeOptions.Gt,

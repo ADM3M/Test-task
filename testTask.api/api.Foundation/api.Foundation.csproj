@@ -12,8 +12,4 @@
       <ProjectReference Include="..\api.Repositories\api.Repositories.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="HL7DateComparsion\" />
-    </ItemGroup>
-
 </Project>

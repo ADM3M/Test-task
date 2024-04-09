@@ -7,7 +7,7 @@ namespace api.Extensions;
 
 public static class DatabaseInit
 {
-    public static void InitializeDb(IApplicationBuilder app)
+    public static void Initialize(IApplicationBuilder app)
     {
         using var scope = app.ApplicationServices.CreateScope();
 

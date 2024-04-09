@@ -11,11 +11,11 @@ namespace testTask.client
         public static async Task SendUsers()
         {
             var mockData = await ReadMockData();
+            var content = new StringContent(mockData, Encoding.UTF8, MediaTypeNames.Application.Json);
 
             using var client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:8080/api/patient/create");
 
-            var content = new StringContent(mockData, Encoding.UTF8, MediaTypeNames.Application.Json);
             var result = await client.PostAsync("", content);
             if (result.IsSuccessStatusCode)
             {
@@ -26,7 +26,7 @@ namespace testTask.client
                 Console.WriteLine($"Request failed with {result.StatusCode}");
             }
         }
-        
+
         public static async Task<string> ReadMockData()
         {
             try
@@ -39,7 +39,7 @@ namespace testTask.client
                 throw;
             }
         }
-        
+
         public static async Task Main(string[] args)
         {
             await SendUsers();
